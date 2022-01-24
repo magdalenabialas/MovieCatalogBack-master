@@ -4,6 +4,8 @@ import magdalena.galwa.MovieCatalog.exception.MovieNotFoundException;
 import magdalena.galwa.MovieCatalog.movie.Movie;
 import magdalena.galwa.MovieCatalog.movie.MovieRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,16 +25,12 @@ public class MovieService {
         this.movieRepo = movieRepo;
     }
 
-    public List<Movie> findAllMovies(){
-        return movieRepo.findAll();
+    public Page<Movie> findAllMovies(Pageable pageable){
+        return movieRepo.findAll(pageable);
     }
 
     public Movie findMovieByIdmovie(Long idmovie){
         return movieRepo.findMovieByIdmovie(idmovie).
                 orElseThrow(()-> new MovieNotFoundException ("Movie by id " + idmovie + " was not found"));
-    }
-    public Movie findMovieByTitle(String title){
-        return movieRepo.findMovieByTitle(title).
-                orElseThrow(()-> new MovieNotFoundException ("Movie by title" + title + " was not found"));
     }
 }

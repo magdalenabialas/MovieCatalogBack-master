@@ -1,5 +1,7 @@
 package magdalena.galwa.MovieCatalog.movie;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import magdalena.galwa.MovieCatalog.movie.Movie;
 
@@ -14,5 +16,7 @@ import java.util.Optional;
 
 public interface MovieRepo extends JpaRepository<Movie, Long> {
     Optional<Movie> findMovieByIdmovie(Long idmovie);
-    Optional<Movie> findMovieByTitle(String title);
+    Page<Movie> findAll(Pageable pageable);
 }
+
+
