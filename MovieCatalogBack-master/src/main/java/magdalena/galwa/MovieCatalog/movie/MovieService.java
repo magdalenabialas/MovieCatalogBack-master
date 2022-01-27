@@ -25,8 +25,8 @@ public class MovieService {
         this.movieRepo = movieRepo;
     }
 
-    public Page<Movie> findAllMovies(Pageable pageable){
-        return movieRepo.findAll(pageable);
+    public List<Movie> findAllMovies(){
+        return movieRepo.findAll();
     }
 
     public Movie findMovieByIdmovie(Long idmovie){
@@ -34,3 +34,4 @@ public class MovieService {
                 orElseThrow(()-> new MovieNotFoundException ("Movie by id " + idmovie + " was not found"));
     }
 }
+

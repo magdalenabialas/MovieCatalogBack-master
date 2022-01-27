@@ -16,7 +16,7 @@ import java.util.Optional;
 
 public interface MovieRepo extends JpaRepository<Movie, Long> {
     Optional<Movie> findMovieByIdmovie(Long idmovie);
-    Page<Movie> findAll(Pageable pageable);
 }
+
 
 

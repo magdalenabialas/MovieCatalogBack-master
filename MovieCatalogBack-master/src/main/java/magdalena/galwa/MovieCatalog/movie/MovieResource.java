@@ -28,29 +28,9 @@ public class MovieResource {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<Map<String, Object>> getAllMovies(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "9") int size
-    ){
-        try {
-            List<Movie> movies = new ArrayList<Movie>();
-            Pageable paging = PageRequest.of(page, size);
-
-            Page<Movie> pageMovie;
-
-            pageMovie = movieService.findAllMovies(paging);
-            movies = pageMovie.getContent();
-
-            Map<String, Object> response = new HashMap<>();
-            response.put("tutorials", movies);
-            response.put("currentPage", pageMovie.getNumber());
-            response.put("totalItems", pageMovie.getTotalElements());
-            response.put("totalPages", pageMovie.getTotalPages());
-
-            return new ResponseEntity<>(response, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public ResponseEntity<List<Movie>> getAllMovies(){
+        List<Movie> movies = movieService.findAllMovies();
+        return new ResponseEntity<>(movies, HttpStatus.OK);
     }
 
     @GetMapping("/findidmovie/{id}")
@@ -58,5 +38,4 @@ public class MovieResource {
         Movie movie = movieService.findMovieByIdmovie(idmovie);
         return new ResponseEntity<>(movie, HttpStatus.OK);
     }
-
 }

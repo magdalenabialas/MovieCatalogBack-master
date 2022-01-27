@@ -1,7 +1,5 @@
 package magdalena.galwa.MovieCatalog.moviesactors;
-
 import magdalena.galwa.MovieCatalog.movie.Movie;
-import magdalena.galwa.MovieCatalog.moviesactors.MoviesActors;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
