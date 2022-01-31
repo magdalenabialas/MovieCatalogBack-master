@@ -25,6 +25,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = true)
+    private Long idmovie_reko1;
+
+    @Column(nullable = true)
+    private Long idmovie_reko2;
+
     @NotBlank
     @Size(max = 20)
     private String username;
@@ -57,9 +63,19 @@ public class User {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long id) { this.id = id; }
+
+    public Long getIdmovie_reko1() {
+        return idmovie_reko1;
     }
+
+    public void setIdmovie_reko1(Long idmovie_reko1) { this.idmovie_reko1 = idmovie_reko1; }
+
+    public Long getIdmovie_reko2() {
+        return idmovie_reko2;
+    }
+
+    public void setIdmovie_reko2(Long idmovie_reko2) { this.idmovie_reko2 = idmovie_reko2; }
 
     public String getUsername() {
         return username;
