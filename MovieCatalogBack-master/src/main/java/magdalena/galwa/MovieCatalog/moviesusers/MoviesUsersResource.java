@@ -3,10 +3,7 @@ package magdalena.galwa.MovieCatalog.moviesusers;
 import magdalena.galwa.MovieCatalog.user.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,10 +27,15 @@ public class MoviesUsersResource {
         return new ResponseEntity<>(moviesusers, HttpStatus.OK);
     }
 
-    @GetMapping("/idmovie/{id}")
+    @GetMapping("/iduser/{id}")
     public ResponseEntity<List<MoviesUsers>> getMoviesUsersByUser(@PathVariable("id") User user ){
         List<MoviesUsers> moviesusers =  moviesUsersService.findMoviesUsersByUser(user);
         return new ResponseEntity<>(moviesusers, HttpStatus.OK);
     }
 
+    @PostMapping("/add")
+    public ResponseEntity<MoviesUsers> addRole(@RequestBody MoviesUsers moviesUsers){
+        MoviesUsers newMoviesUsers = moviesUsersService.addRole(moviesUsers);
+        return new ResponseEntity<>(newMoviesUsers, HttpStatus.CREATED);
+    }
 }

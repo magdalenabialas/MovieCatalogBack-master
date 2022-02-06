@@ -1,4 +1,5 @@
 package magdalena.galwa.MovieCatalog.user;
+import magdalena.galwa.MovieCatalog.moviesusers.MoviesUsers;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

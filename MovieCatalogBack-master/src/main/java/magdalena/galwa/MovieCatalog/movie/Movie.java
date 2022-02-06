@@ -26,7 +26,7 @@ public class Movie implements Serializable {
     @Column(length = 700)
     private String description;
     private Double average_rate;
-    private Long vote_count;
+    private Integer vote_count;
     @Column(length = 500)
     private String poster_path;
 
@@ -50,7 +50,7 @@ public class Movie implements Serializable {
 
     public Movie(){}
 
-    public Movie(Long id_movie, String title, String original_lang, String release_date, String description, Double average_rate, Long vote_count, String poster_path) {
+    public Movie(Long id_movie, String title, String original_lang, String release_date, String description, Double average_rate, Integer vote_count, String poster_path) {
         this.idmovie = id_movie;
         this.title = title;
         this.original_lang = original_lang;
@@ -121,12 +121,12 @@ public class Movie implements Serializable {
         this.average_rate = average_rate;
     }
 
-    public Long getVote_count(){
+    public Integer getVote_count(){
 
         return vote_count;
     }
 
-    public void setVote_count(Long vote_count) {
+    public void setVote_count(Integer vote_count) {
 
         this.vote_count = vote_count;
     }
@@ -139,19 +139,6 @@ public class Movie implements Serializable {
     public void setPoster_path(String poster_path) {
 
         this.poster_path = poster_path;
-    }
-
-    @Override
-    public String toString(){
-        return "Movie{"+
-                "id=" + idmovie +
-                ", title='" + title + '\'' +
-                ", original_lang='" + original_lang + '\'' +
-                ", release_date='" + release_date + '\'' +
-                ", average_rate=" + average_rate +
-                ", vote_count=" + vote_count +
-                ", poster_path='" + poster_path + '\'' +
-                '}';
     }
 
     public Set<Genre> getMovies_genres(){

@@ -1,5 +1,6 @@
 package magdalena.galwa.MovieCatalog.moviesusers;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import magdalena.galwa.MovieCatalog.user.User;
 import magdalena.galwa.MovieCatalog.movie.Movie;
 
@@ -17,12 +18,19 @@ public class MoviesUsers implements Serializable {
 
     @Id
     @Column(nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idrate;
     private Double rate;
+
+    private transient Long iduser;
     @ManyToOne
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @JoinColumn(name ="iduser")
     private User user;
+
+    private transient Long idmovie;
     @ManyToOne
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @JoinColumn(name ="idmovie")
     private Movie movie;
 
@@ -42,6 +50,22 @@ public class MoviesUsers implements Serializable {
 
     public void setIdrate(Long idrate){
         this.idrate = idrate;
+    }
+
+    public Long getIduser(){
+        return this.iduser;
+    }
+
+    public void setIduser(Long id){
+        this.iduser = id;
+    }
+
+    public Long getIdmovie(){
+        return this.idmovie;
+    }
+
+    public void setIdmovie(Long idmovie){
+        this.idmovie = idmovie;
     }
 
     public Double getRate(){ return this.rate; }
