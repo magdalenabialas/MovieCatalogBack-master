@@ -65,9 +65,7 @@ public class User {
 
     public void setId(Long id) { this.id = id; }
 
-    public Long getReccoMovie1() {
-        return reccomended_movie1;
-    }
+    public Long getReccoMovie1() { return reccomended_movie1; }
 
     public void setReccoMovie1(Long reccomended_movie1) { this.reccomended_movie1 = reccomended_movie1; }
 

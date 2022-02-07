@@ -76,7 +76,7 @@ public class AuthController {
                 userDetails.getEmail(),
                 roles,
                 userDetails.getReccoMovie1(),
-                userDetails.getReccoMovie1()
+                userDetails.getReccoMovie2()
         ));
     }
 
