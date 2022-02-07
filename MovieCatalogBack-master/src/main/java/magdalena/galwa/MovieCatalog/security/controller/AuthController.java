@@ -74,7 +74,10 @@ public class AuthController {
                 userDetails.getId(),
                 userDetails.getUsername(),
                 userDetails.getEmail(),
-                roles));
+                roles,
+                userDetails.getReccoMovie1(),
+                userDetails.getReccoMovie1()
+        ));
     }
 
     @PostMapping("/signup")
@@ -125,4 +128,6 @@ public class AuthController {
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
+
+
 }

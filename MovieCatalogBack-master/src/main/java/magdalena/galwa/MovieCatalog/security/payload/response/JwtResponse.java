@@ -5,6 +5,7 @@ package magdalena.galwa.MovieCatalog.security.payload.response;
  * @version 1
  * @since 27.01.2022
  */
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 public class JwtResponse {
@@ -14,13 +15,18 @@ public class JwtResponse {
     private String username;
     private String email;
     private List<String> roles;
+    private Long reccomended_movie1;
+    private Long reccomended_movie2;
 
-    public JwtResponse(String accessToken, Long id, String username, String email, List<String> roles) {
+
+    public JwtResponse(String accessToken, Long id, String username, String email, List<String> roles, Long reccomended_movie1, Long reccomended_movie2) {
         this.token = accessToken;
         this.id = id;
         this.username = username;
         this.email = email;
         this.roles = roles;
+        this.reccomended_movie1 = reccomended_movie1;
+        this.reccomended_movie2 = reccomended_movie2;
     }
 
     public String getAccessToken() {
@@ -45,6 +51,14 @@ public class JwtResponse {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getReccoMovie1() {
+        return reccomended_movie1;
+    }
+
+    public Long getReccoMovie2() {
+        return reccomended_movie2;
     }
 
     public String getEmail() {

@@ -38,6 +38,12 @@ public class User {
     @Size(max = 120)
     private String password;
 
+    @NotBlank
+    private Long reccomended_movie1;
+
+    @NotBlank
+    private Long reccomended_movie2;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -58,6 +64,18 @@ public class User {
     }
 
     public void setId(Long id) { this.id = id; }
+
+    public Long getReccoMovie1() {
+        return reccomended_movie1;
+    }
+
+    public void setReccoMovie1(Long reccomended_movie1) { this.reccomended_movie1 = reccomended_movie1; }
+
+    public Long getReccoMovie2() {
+        return reccomended_movie2;
+    }
+
+    public void setReccoMovie2(Long reccomended_movie2) { this.reccomended_movie2 = reccomended_movie2; }
 
     public String getUsername() {
         return username;

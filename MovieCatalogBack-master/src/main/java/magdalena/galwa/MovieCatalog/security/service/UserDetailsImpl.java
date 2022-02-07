@@ -30,15 +30,21 @@ public class UserDetailsImpl implements UserDetails {
     @JsonIgnore
     private String password;
 
+    private Long reccomended_movie1;
+
+    private Long reccomended_movie2;
+
     private Collection<? extends GrantedAuthority> authorities;
 
     public UserDetailsImpl(Long id, String username, String email, String password,
-                           Collection<? extends GrantedAuthority> authorities) {
+                           Collection<? extends GrantedAuthority> authorities, Long reccomended_movie1, Long reccomended_movie2) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
         this.authorities = authorities;
+        this.reccomended_movie1 = reccomended_movie1;
+        this.reccomended_movie2 = reccomended_movie2;
     }
 
     public static UserDetailsImpl build(User user) {
@@ -51,7 +57,9 @@ public class UserDetailsImpl implements UserDetails {
                 user.getUsername(),
                 user.getEmail(),
                 user.getPassword(),
-                authorities);
+                authorities,
+                user.getReccoMovie1(),
+                user.getReccoMovie2());
     }
 
     @Override
@@ -75,6 +83,14 @@ public class UserDetailsImpl implements UserDetails {
     @Override
     public String getUsername() {
         return username;
+    }
+
+    public Long getReccoMovie1() {
+        return reccomended_movie1;
+    }
+
+    public Long getReccoMovie2() {
+        return reccomended_movie2;
     }
 
     @Override
