@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
+import magdalena.galwa.MovieCatalog.moviesusers.MoviesUsersRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -51,6 +52,9 @@ public class AuthController {
     RoleRepo roleRepository;
 
     @Autowired
+    MoviesUsersRepo moviesusersRepo;
+
+    @Autowired
     PasswordEncoder encoder;
 
     @Autowired
@@ -69,6 +73,8 @@ public class AuthController {
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
+
+
 
         return ResponseEntity.ok(new JwtResponse(jwt,
                 userDetails.getId(),

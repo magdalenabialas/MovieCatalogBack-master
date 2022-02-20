@@ -39,7 +39,7 @@ public class MovieResource {
         return new ResponseEntity<>(movie, HttpStatus.OK);
     }
 
-    @GetMapping("/update/{id}/{rate}")
+    @PutMapping("/update/{id}/{rate}")
     public ResponseEntity<Movie> updateMovieVoteRate(@PathVariable("id") long idmovie, @PathVariable("rate") double rate){
         Movie movie = movieService.findMovieByIdmovie(idmovie);
         Movie updatedMovie = movieService.updateMovieVoteRate(movie, rate);

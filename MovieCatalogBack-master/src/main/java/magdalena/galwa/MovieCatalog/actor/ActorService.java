@@ -1,8 +1,6 @@
 package magdalena.galwa.MovieCatalog.actor;
 
-import magdalena.galwa.MovieCatalog.exception.MovieNotFoundException;
-import magdalena.galwa.MovieCatalog.actor.Actor;
-import magdalena.galwa.MovieCatalog.actor.ActorRepo;
+import magdalena.galwa.MovieCatalog.exception.ActorNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +24,6 @@ public class ActorService {
 
     public Actor findActorByIdactor(Long idactor){
         return actorRepo.findActorByIdactor(idactor).
-                orElseThrow(() -> new MovieNotFoundException("Actor by id" + idactor + "was nto found"));
+                orElseThrow(() -> new ActorNotFoundException("Actor by id" + idactor + "was nto found"));
     }
 }

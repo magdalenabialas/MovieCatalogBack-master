@@ -1,9 +1,7 @@
 package magdalena.galwa.MovieCatalog.moviesactors;
 
-import magdalena.galwa.MovieCatalog.exception.MovieNotFoundException;
-import magdalena.galwa.MovieCatalog.moviesactors.MoviesActors;
+import magdalena.galwa.MovieCatalog.exception.MoviesActorsNotFoundException;
 import magdalena.galwa.MovieCatalog.movie.Movie;
-import magdalena.galwa.MovieCatalog.moviesactors.MoviesActorsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +24,6 @@ public class MoviesActorsService {
 
     public List<MoviesActors> findMoviesActorsByMovie(Movie movie){
         return moviesactorsRepo.findMoviesActorsByMovie(movie).
-                orElseThrow(() -> new MovieNotFoundException("Roles related to movie by id" + movie.getIdmovie() + "was not found"));
+                orElseThrow(() -> new MoviesActorsNotFoundException("Roles related to movie by id" + movie.getIdmovie() + "was not found"));
     }
 }

@@ -33,8 +33,8 @@ public class MoviesUsersResource {
         return new ResponseEntity<>(moviesusers, HttpStatus.OK);
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<MoviesUsers> addRole(@RequestBody MoviesUsers moviesUsers){
+    @PostMapping("/add/rate")
+    public ResponseEntity<MoviesUsers> addRate(@RequestBody MoviesUsers moviesUsers){
         MoviesUsers newMoviesUsers = moviesUsersService.addRole(moviesUsers);
         return new ResponseEntity<>(newMoviesUsers, HttpStatus.CREATED);
     }

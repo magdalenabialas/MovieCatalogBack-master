@@ -1,8 +1,6 @@
 package magdalena.galwa.MovieCatalog.director;
 
-import magdalena.galwa.MovieCatalog.exception.MovieNotFoundException;
-import magdalena.galwa.MovieCatalog.director.Director;
-import magdalena.galwa.MovieCatalog.director.DirectorRepo;
+import magdalena.galwa.MovieCatalog.exception.DirectorNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +24,6 @@ public class DirectorService {
 
     public Director findDirectorByIddirector(Long iddirector){
         return directorRepo.findDirectorByIddirector(iddirector).
-                orElseThrow(() -> new MovieNotFoundException("Director by id" + iddirector + "was not found"));
+                orElseThrow(() -> new DirectorNotFoundException("Director by id" + iddirector + "was not found"));
     }
 }

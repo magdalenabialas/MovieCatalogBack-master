@@ -1,8 +1,6 @@
 package magdalena.galwa.MovieCatalog.genre;
 
-import magdalena.galwa.MovieCatalog.exception.MovieNotFoundException;
-import magdalena.galwa.MovieCatalog.genre.Genre;
-import magdalena.galwa.MovieCatalog.genre.GenreRepo;
+import magdalena.galwa.MovieCatalog.exception.GenreNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +28,6 @@ public class GenreService {
 
     public Genre findGenreByIdgenre(Long idgenre){
         return genreRepo.findGenreByIdgenre(idgenre).
-                orElseThrow(()-> new MovieNotFoundException("Genre by id " + idgenre + " was not found"));
+                orElseThrow(()-> new GenreNotFoundException("Genre by id " + idgenre + " was not found"));
     }
 }

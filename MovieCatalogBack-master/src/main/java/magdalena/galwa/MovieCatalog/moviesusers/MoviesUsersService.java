@@ -1,9 +1,8 @@
 package magdalena.galwa.MovieCatalog.moviesusers;
 
-import magdalena.galwa.MovieCatalog.exception.MovieNotFoundException;
+import magdalena.galwa.MovieCatalog.exception.MoviesUsersNotFoundException;
 import magdalena.galwa.MovieCatalog.movie.MovieRepo;
 import magdalena.galwa.MovieCatalog.user.User;
-import magdalena.galwa.MovieCatalog.moviesusers.MoviesUsersRepo;
 import magdalena.galwa.MovieCatalog.user.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,7 +33,7 @@ public class MoviesUsersService {
 
     public List<MoviesUsers> findMoviesUsersByUser(User user){
         return moviesusersRepo.findMoviesUsersByUser(user).
-                orElseThrow(() -> new MovieNotFoundException("Rate related to user id" + user.getId() + "was not found"));
+                orElseThrow(() -> new MoviesUsersNotFoundException("Rate related to user id" + user.getId() + "was not found"));
     }
 
     public MoviesUsers addRole(MoviesUsers moviesusers){
